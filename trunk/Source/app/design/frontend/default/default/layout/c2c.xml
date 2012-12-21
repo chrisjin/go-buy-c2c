@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">	
+    <c2c_seller_index>
+		<reference name="col_left">
+			<remove name="category" />
+			<block type="core/template" name="seller_category" as="seller_category" template="c2c/html/col_left/category.phtml"/>
+        </reference>
+		<reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="catalog/product_list" name="seller" template="c2c/seller.phtml">
+				<block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+					<block type="page/html_pager" name="product_list_toolbar_pager"/>
+				</block>
+			</block>
+        </reference>
+    </c2c_seller_index>
+	
+    <c2c_seller_addproduct>
+		<reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="c2c/c2c" name="c2c" template="c2c/c2c.phtml" />
+        </reference>
+    </c2c_seller_addproduct>
+</layout> 

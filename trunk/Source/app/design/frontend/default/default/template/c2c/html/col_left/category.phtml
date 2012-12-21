@@ -1,0 +1,83 @@
+<?php
+	$obj = new Mage_Catalog_Block_Navigation();
+
+	$store_cats = $obj->getStoreCategories();
+
+	$current_cat = $obj->getCurrentCategory();
+
+	$current_cat = (is_object($current_cat) ? $current_cat->getId() : '');
+	$c2cHelper = Mage::helper('c2c');
+?>
+
+<div class="blocks blocks-nav">
+
+    <div class="blocks-title">
+
+        商品分类 <strong>Categories Seller</strong>
+
+    </div>                  
+
+    <div class="blocks-content">  	
+
+        <ul id="cate-nav">
+
+        	<?php foreach ($store_cats as $cat): ?>
+
+			<?php
+
+                $cate = Mage::getModel('catalog/category')->load($cat->getId());
+
+				if($cate->getMenu_position() == 1):
+
+                $allchild = Mage::getModel('catalog/category')->load($cat->getId())->getChildrenCategories();
+
+            ?>
+			<?php if($cate->getCat_create_by() == 1):?>
+            <li><a href="<?php echo $cate->getUrl(); ?>"><span><?php echo $cate->getChina_name(); ?></span> <?php echo $cate->getName(); ?></a>
+			<?php elseif($c2cHelper->checkCategoryCreateBy($allchild)):?>
+            <li><a href="javascript:void(0);"><span><?php echo $cate->getChina_name(); ?></span> <?php echo $cate->getName(); ?></a>
+			<?php endif;?>
+            	<?php if(count($allchild) > 0): ?>
+
+                <ul>
+
+					<?php foreach ($allchild as $childCategory): ?>
+                    <?php $chifull = Mage::getModel('catalog/category')->load($childCategory->getId()); ?>
+					<?php
+                    $allchild_chis = Mage::getModel('catalog/category')->load($chifull->getId())->getChildrenCategories();
+					?>
+					<?php if($chifull->getCat_create_by() == 1):?>
+                	<li><a href="<?php echo $chifull->getUrl(); ?>"><span><?php echo $chifull->getChina_name(); ?></span> <?php echo $chifull->getName(); ?></a>
+					<?php elseif($c2cHelper->checkCategoryCreateBy($allchild_chis)):?>
+                	<li><a href="<?php echo $chifull->getUrl(); ?>"><span><?php echo $chifull->getChina_name(); ?></span> <?php echo $chifull->getName(); ?></a>
+					<?php endif;?>
+					<?php
+					if(count($allchild_chis) > 0):
+					?>
+                    <ul>
+                    	<?php foreach ($allchild_chis as $allchild_chi): ?>
+                        <?php $chifull_chi = Mage::getModel('catalog/category')->load($allchild_chi->getId()); ?>
+						<?php if($chifull_chi->getCat_create_by() == 1):?>
+					   <li><a href="<?php echo $chifull_chi->getUrl(); ?>"><span><?php echo $chifull_chi->getChina_name(); ?></span> <?php echo $chifull_chi->getName(); ?></a></li>
+                        <?php endif;?>
+						<?php endforeach; ?>
+                    </ul>
+                    <?php endif;?>
+                    </li>
+                    <?php endforeach; ?>
+
+                </ul>
+
+                <?php endif; ?>
+
+            </li>
+
+            <?php endif; ?>
+
+    		<?php endforeach; ?>
+
+        </ul>
+
+    </div>
+
+</div>

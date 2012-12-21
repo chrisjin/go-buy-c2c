@@ -1,0 +1,258 @@
+<div class="refine-selection">
+	<?php if(isset($_GET['for'])){ $for = $_GET['for']; } ?>
+    <?php if(isset($_GET['usage'])){ $usage = $_GET['usage']; } ?>
+    <?php if(isset($_GET['today'])){ $today = $_GET['today']; } ?>
+    <div class="title"><strong>Refine selection</strong></div>
+
+    <div class="content">
+
+        <p class="sub-title"><strong>Usage</strong></p>
+
+        <ul id="usage">
+
+        <?php 
+
+
+
+            $attributes = Mage::getResourceModel('catalog/product_attribute_collection')
+
+                        ->addHasOptionsFilter()
+
+                        ->addDisplayInAdvancedSearchFilter()
+
+                        ->addStoreLabel(Mage::app()->getStore()->getId())
+
+                        ->setOrder('main_table.attribute_id', 'asc')
+
+                        ->load();
+
+            $atts = array();
+
+            foreach($attributes as $attribute)
+
+            {
+
+                if($attribute->getAttributeCode() == 'usage')
+
+                {
+
+                    $atts = $attribute->getSource()->getAllOptions(false);
+
+                }
+
+            }
+
+            foreach($atts as $att )
+
+            {
+
+        ?>
+
+            <li><input <?php if(!empty($usage) && in_array($att['value'], $usage)){ echo 'checked="checked"'; }?> value="<?php echo $att['value']; ?>" type="checkbox"><label><?php echo $att['label']; ?></label></li>
+
+        <?php } ?>
+
+        </ul>
+
+        <p class="sub-title"><strong>For</strong></p>
+
+        <ul id="for">
+
+            <?php 
+
+
+
+            $attributes = Mage::getResourceModel('catalog/product_attribute_collection')
+
+                        ->addHasOptionsFilter()
+
+                        ->addDisplayInAdvancedSearchFilter()
+
+                        ->addStoreLabel(Mage::app()->getStore()->getId())
+
+                        ->setOrder('main_table.attribute_id', 'asc')
+
+                        ->load();
+
+            $atts = array();
+
+            foreach($attributes as $attribute)
+
+            {
+
+                if($attribute->getAttributeCode() == 'for')
+
+                {
+
+                    $atts = $attribute->getSource()->getAllOptions(false);
+
+                }
+
+            }
+
+            foreach($atts as $att )
+
+            {
+
+        ?>
+
+            <li><input <?php if(!empty($for) && in_array($att['value'], $for)){ echo 'checked="checked"'; }?> value="<?php echo $att['value']; ?>" type="checkbox"><label><?php echo $att['label']; ?></label></li>
+
+        <?php } ?>
+
+        </ul>
+
+        <p class="sub-title"><strong>Today's</strong></p>
+
+        <ul id="today" class="last">
+
+            <?php 
+
+
+
+            $attributes = Mage::getResourceModel('catalog/product_attribute_collection')
+
+                        ->addHasOptionsFilter()
+
+                        ->addDisplayInAdvancedSearchFilter()
+
+                        ->addStoreLabel(Mage::app()->getStore()->getId())
+
+                        ->setOrder('main_table.attribute_id', 'asc')
+
+                        ->load();
+
+            $atts = array();
+
+            foreach($attributes as $attribute)
+
+            {
+
+                if($attribute->getAttributeCode() == 'today')
+
+                {
+
+                    $atts = $attribute->getSource()->getAllOptions(false);
+
+                }
+
+            }
+
+            foreach($atts as $att )
+
+            {
+
+        ?>
+
+            <li><input <?php if(!empty($today) && in_array($att['value'], $today)){ echo 'checked="checked"'; }?> value="<?php echo $att['value']; ?>" type="checkbox"><label><?php echo $att['label']; ?></label></li>
+
+        <?php } ?>
+
+        </ul>
+
+        <div class="form-search">
+
+            <input type="text" id="search_aside" name="q" value="<?php if(isset($_GET['name'])){echo $_GET['name'];}else{echo 'Type in your keywords here';} ?>" class="input-text">
+
+            <button id="sub" type="submit" title="Search" class="button"><span><span>Search</span></span></button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+jQuery(document).ready(function($) {
+
+	$('#search_aside').bind('click', function() {
+
+		if($(this).val() == 'Type in your keywords here')
+
+		{
+
+			$(this).val("");
+
+		}		
+
+	});	
+
+	$('#search_aside').focusout(function() {
+
+		if($(this).val() == '')
+
+		{
+
+			$(this).val("Type in your keywords here");
+
+		}
+
+	});
+
+	$('#sub').bind('click', function() {
+
+		searchkey();
+
+	});
+
+	$('#search_aside').keydown(function(e) {
+
+		if (e.keyCode == 13) {
+
+			searchkey();
+
+		}
+
+	});
+
+	function searchkey()
+
+	{
+
+		var str = '<?php echo Mage::registry('current_category')->getUrl(); ?>';
+
+
+		if($('#search_aside').val() != '' && $('#search_aside').val() != 'Type in your keywords here')
+
+		{
+
+			str += '?name=' + $('#search_aside').val();
+
+		}
+
+		else
+
+		{
+
+			str += '?name=+';
+
+		}
+
+		$('#usage :checked').each(function() {
+
+       		str += '&usage[]=' + $(this).val();
+
+	    });
+
+		$('#for :checked').each(function() {
+
+       		str += '&for[]=' + $(this).val();
+
+	    });
+
+		$('#today :checked').each(function() {
+
+       		str += '&today[]=' + $(this).val();
+
+	    });
+
+		window.location = str;
+
+		//alert(str);
+
+	}
+
+});
+
+</script>

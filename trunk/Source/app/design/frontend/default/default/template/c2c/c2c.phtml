@@ -1,0 +1,70 @@
+<?php
+	
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('Add products') ?></h1>
+</div>
+<form action="<?php echo $this->getUrl('c2c/seller/saveproduct'); ?>" id="productform" method="post">
+    <div class="fieldset">
+        <h2 class="legend"><?php echo $this->__('Product Information') ?></h2>
+        <ul class="form-list">
+            <li class="fields">
+                <div class="field">
+                    <label for="name" class="required"><em>*</em><?php echo $this->__('Product Name') ?></label>
+                    <div class="input-box">
+                        <input name="product_name" id="product_name" title="<?php echo $this->__('Name') ?>" value="" class="input-text required-entry" type="text" />
+                    </div>
+                </div>
+            </li>
+            <li class="fields">
+                <div class="field">
+                    <label for="catalog" class="required"><em>*</em><?php echo $this->__('Catalog') ?></label>
+                    <div class="input-box">
+                        <input name="catalog" id="catalog" title="<?php echo $this->__('Catalog') ?>" value="" class="input-text required-entry" type="text" />
+                    </div>
+                </div>
+            </li>
+            <li class="wide">
+                <label for="description" class="required"><em>*</em><?php echo $this->__('Description') ?></label>
+                <div class="input-box">
+                    <textarea name="description" id="description" title="<?php echo $this->__('Description') ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
+                </div>
+            </li>
+            <li class="fields">
+                <div class="field">
+                    <label for="price" class="required"><em>*</em><?php echo $this->__('Price') ?></label>
+                    <div class="input-box">
+                        <input name="price" id="price" title="<?php echo $this->__('Price') ?>" value="" class="input-text required-entry" type="text" />
+                    </div>
+                </div>
+            </li>
+            <li class="fields">
+                <div class="field">
+                    <label for="quantity" class="required"><em>*</em><?php echo $this->__('Quantity') ?></label>
+                    <div class="input-box">
+                        <input name="quantity" id="quantity" title="<?php echo $this->__('Quantity') ?>" value="" class="input-text required-entry" type="text" />
+                    </div>
+                </div>
+            </li>
+            <li class="fields">
+                <div class="field">
+                    <label for="image" class="required"><em>*</em><?php echo $this->__('Image') ?></label>
+                    <div class="input-box">
+						<input type="file" title="File" name="image" id="image"/>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="buttons-set">
+        <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+        <button type="submit" title="<?php echo $this->__('Add Product') ?>" class="button"><span><span><?php echo $this->__('Add Product') ?></span></span></button>
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var productform = new VarienForm('productform', true);
+//]]>
+</script>
+
+ 

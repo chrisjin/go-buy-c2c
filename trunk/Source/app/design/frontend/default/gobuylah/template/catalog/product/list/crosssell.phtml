@@ -1,0 +1,21 @@
+<?php if($this->getItems()->getSize()): ?>
+<div class="page-title"><h2>Promotions</h2></div>
+<div class="product-list">
+    <ul id="crosssell" class="jcarousel-skin-tango">
+        <?php foreach($this->getItems() as $_item): ?>
+        	<li>
+                <a href="<?php echo $_item->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(114,108) ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
+                <h3><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></h3>
+                <?php echo $this->getPriceHtml($_item, true, '-crosssell') ?>
+            </li>
+        <?php endforeach ?>
+	</ul>
+</div>
+<?php endif ?>
+<?php if($this->getItems()->getSize() > 5): ?>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	jQuery('.product-list ul#crosssell').jcarousel({scroll:1});
+});
+</script>
+<?php endif ?>
