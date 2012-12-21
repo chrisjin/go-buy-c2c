@@ -1,0 +1,145 @@
+.fixie { position: relative; }
+.bn-ads { margin-bottom: 20px; }
+.brands-logo { height: 75px; overflow: hidden; }
+button.btn-wish span { background-image: url(../images/gobuy/bg-btn-left-2.png); height: 26px; }
+button.btn-wish span span { background-image: url(../images/gobuy/bg-btn-right-2.png); text-shadow: #186b89 1px 1px 0px; }
+button.btn-restock span { background-image: url(../images/gobuy/bg-btn-left-3.png); height: 26px; }
+button.btn-restock span span { background-image: url(../images/gobuy/bg-btn-right-3.png); text-shadow: #41691f 1px 1px 0px; }
+
+
+/* header */
+.header .payment-method { border: #bdbdbd solid 1px; position: absolute; top: 8px; left: 215px; text-align: center; width: 142px; }
+.header .payment-method .title { background: #8d8d8d; color: #fff; font-size: 10px; font-weight: bold; margin: 0; padding: 3px 0; text-transform: uppercase; }
+.header .payment-method .content { background: #fff; padding: 5px; }
+.header .hot-line { float: right; font-size: 18px; font-weight: bold; }
+.header .hot-line span { color: #be1238; }
+.header .links li a { background: url(../images/gobuy/bg-ico.png) no-repeat; padding-left: 20px; }
+.header .links li a:hover { color: #f00; }
+.header .links li a.home { background-position: left -4px; }
+.header .links li a.my-account { background-position: left -39px; }
+.header .links li a.login { background-position: left -73px; }
+.header .links li a.register { background: none; padding-left: 0; }
+.header .links li a.my-cart { background-position: left -108px; }
+
+/* banner */
+.banner-container { background: url(../images/gobuy/bg-shadow-1.png) no-repeat center top; margin-top: -69px; padding-top: 24px; }
+.banner-container .banner-wrapper { background: url(../images/gobuy/bg-shadow-2.png) no-repeat center bottom; padding-bottom: 20px; }
+.banner-container .banner-inner { background: #bbb url(../images/gobuy/bg-banner.png) repeat-y center top; height: 360px; padding-top: 46px; }
+.banner-container .banner { height: 360px; margin: 0 auto; overflow: hidden; padding-left: 240px; position: relative; width: 720px; }
+.banner-container .banner .stripNav { position: absolute; right: 0; bottom: 10px; z-index: 99; }
+.banner-container .banner .stripNav a { background: url(../images/gobuy/ico-slide.png) no-repeat right top; display: block; float: left; height: 7px; margin-right: 3px; text-indent: -1984em; width: 7px; }
+.banner-container .banner .stripNav .activeSlide { background-position: 0 0; }
+#slider-content { position: relative; overflow: hidden;	width: 720px; height: 360px; }
+.jshowoff {	width: 720px; }
+.jshowoff p.jshowoff-slidelinks { position: absolute; bottom: 10px; right: 0px; margin: 0; padding: 0; }
+.jshowoff-slidelinks a, .jshowoff-controls a { background: url(../images/gobuy/ico-slide.png) no-repeat right top; display: block; float: left; height: 7px; margin-right: 5px; outline: none; text-indent: -1984em; width: 7px; }
+.jshowoff-slidelinks a:hover, .jshowoff-controls a:hover { background-position: left top; }
+.jshowoff-slidelinks a.jshowoff-active, .jshowoff-slidelinks a.jshowoff-active:hover { background-position: left top; }
+p.jshowoff-controls { display: none; }
+
+/* blocks navigation */
+.blocks-nav .blocks-title { background-position: left -88px; color: #333; left: -9px; }
+.blocks-nav .blocks-title strong { color: #be1238; }
+.blocks-nav .blocks-content { background: #be1238; padding: 82px 0 0; }
+.blocks-nav ul li { background: url(../images/gobuy/bg-line-nav.png) no-repeat center bottom; font-weight: bold; padding-bottom: 2px; position: relative; }
+.blocks-nav ul li.last { background: none; }
+.blocks-nav ul li:last-child { background: none; }
+.blocks-nav ul li a { background: url(../images/gobuy/ico-arrow-1.png) no-repeat 190px 15px; color: #fff; display: block; height: 30px; line-height: 1.2; padding: 7px 22px 5px; }
+.blocks-nav ul .expanded a, .blocks-nav ul li.active a, .blocks-nav ul li a:hover { background: url(../images/gobuy/bg-nav-active.png) repeat-x left top; color: #be1238; }
+.blocks-nav ul li a span { display: block; font-size: 14px; font-weight: normal; }
+.blocks-nav ul ul { background-color: #fff; box-shadow: #c6c6c6 0px 0px 3px; display: none; position: absolute; left: 218px; top: 0; width: 140px; z-index: 9999; }
+.blocks-nav ul ul li { background-image: url(../images/gobuy/bg-line-sub-menu.png); }
+.blocks-nav ul ul li a, .blocks-nav ul .expanded ul li a { background: none; color: #505050; }
+.blocks-nav ul .expanded ul .expanded a, .blocks-nav ul .expanded ul li a:hover, .blocks-nav ul .expanded ul .expanded ul a:hover { background: #ebebeb url(../images/gobuy/bg-sub-menu-hover.png) repeat-x left top; color: #be1238; }
+.blocks-nav ul ul ul { left: 140px; }
+.blocks-nav ul .expanded ul .expanded ul a { background: none; color: #505050; }
+
+.box { background: url(../images/gobuy/bg-shadow-4.png) no-repeat center bottom; margin-bottom: 8px; padding-bottom: 7px; }
+.box .box-title { background: #505050; border: #e9e9e9 solid 1px; border-bottom: none; color: #fff; font-size: 12px; font-weight: bold; line-height: normal; text-align: center; text-transform: uppercase; }
+.box .box-title strong { border-bottom: #969696 solid 1px; display: block; padding: 3px; }
+.box .box-content { background-color: #fff; border: #e9e9e9 solid 1px; border-top: none; padding: 9px; }
+.box .box-title-2 { background: url(../images/gobuy/bg-title-left.png) no-repeat left top; font-size: 12px; height: 44px; padding-left: 20px; position: absolute; left: -10px; top: 10px; }
+.box .box-title-2 h1 { background: url(../images/gobuy/bg-title-right.png) no-repeat right top; color: #fff; height: 44px; padding-right: 30px; }
+.box .box-title-2 h1 span { background: url(../images/gobuy/bg-title.png) repeat-x left top; display: inline-block; height: 36px; padding: 4px 0px; }
+
+.col-main .box { background: url(../images/gobuy/bg-shadow-5.png) no-repeat center bottom; padding-bottom: 18px; }
+.col-main .box .box-title strong { padding: 3px 20px; text-align: left; }
+
+.col-main .box-tempt { margin-bottom: 0; position: relative; }
+.col-main .box-tempt .box-title { background: url(../images/gobuy/bg-tick.png) no-repeat left top; border: none; font-size: 16px; font-weight: normal; height: 74px; padding-left: 20px; padding-top: 12px; position: absolute; text-align: left; top: 10px; left: -10px; width: 184px; }
+.col-main .box-tempt .box-title strong { border-bottom: none; font-size: 14px; font-weight: bold; padding: 0; text-align: left; text-transform: capitalize; }
+.col-main .box-tempt .box-content { padding: 80px 0 0; }
+.col-main .box-tempt .more { background: url(../images/gobuy/ico-arrow-2.png) no-repeat right 4px; color: #be1238; font-weight: bold; padding-right: 13px; position: absolute; top: 30px; right: 20px; }
+.col-main .box-tempt .more:hover { color: #c00; }
+
+.newsletter .text { border: #616363 solid 1px; float: left; margin-right: 3px; padding: 3px; width: 130px; }
+.newsletter .button span { background: none; padding: 0; }
+.newsletter .button span span { background: url(../images/gobuy/bg-btn-signup.png) repeat-x left top; border: #393939 solid 1px; font-size: 11px; height: 22px; line-height: 22px; text-align: center; text-transform: uppercase; text-shadow: none; width: 64px; }
+
+.col-main .box-tempt .category-grid { padding-top: 65px; }
+
+.pager .limiter .jquery-selectbox { background: url(../images/gobuy/custom-select-bg.png) repeat-x 0 bottom; border: none; height: 24px; width: 80px !important; }
+.pager .limiter .jquery-selectbox .jquery-selectbox-list { top: 24px; width: 76px !important; }
+.pager .limiter .jquery-selectbox .jquery-selectbox-currentItem { color: #2b2b2b; }
+.pager .limiter .jquery-selectbox .jquery-selectbox-moreButton { background: url(../images/gobuy/custom-select-trigger-2.png) no-repeat left top; height: 24px; width: 23px; }
+
+.category-products .products-grid { width: 710px; }
+.category-products .products-grid li.item { margin-left: 15px; margin-right: 9px; }
+
+.color-box label { float: left; font-weight: bold; margin-right: 5px; padding-top: 2px; width:50px; }
+.color-box label em { color:#F00; }
+.color-box .jquery-selectbox { width: 150px !important; }
+.color-box .jquery-selectbox .jquery-selectbox-list { width: 146px !important; }
+.color-box .jquery-selectbox .jquery-selectbox-currentItem { font-weight: bold; }
+
+#thumbs-list .jcarousel-skin-tango .jcarousel-container-horizontal { padding: 0 20px; width: 308px; }
+#thumbs-list .jcarousel-skin-tango .jcarousel-clip-horizontal { width: 308px; }
+#thumbs-list .jcarousel-skin-tango .jcarousel-item-horizontal { border: #dddddd solid 1px; margin-right: 15px; width: 90px; }
+#thumbs-list .jcarousel-skin-tango .jcarousel-next-horizontal { background-image: url(../images/gobuy/ico-next-2.png); height: 19px; right: 0px; top: 30px; width: 12px; }
+#thumbs-list .jcarousel-skin-tango .jcarousel-prev-horizontal { background-image: url(../images/gobuy/ico-prev-2.png); height: 19px; left: 0px; top: 30px; width: 12px; }
+
+.product-view .page-title { border-top: #c9c9c9 dotted 1px; margin-top: 20px; padding-top: 15px; }
+
+.product-list { line-height: normal; text-align: center; }
+.product-list img { border: #ddd solid 1px; }
+.product-list a:hover img { border-color: #999; opacity: .8; }
+.product-list h3 { margin-bottom: 0; }
+.product-list h3 a { color: #333; font-size: 13px; }
+.product-list h3 a:hover { color: #be1238; }
+.product-list .price-box { background: none; margin: 0; padding-left: 0; }
+.product-list .price { color: #e49e1e; }
+.product-list .jcarousel-skin-tango .jcarousel-container-horizontal { padding: 0 25px; width: 640px; }
+.product-list .jcarousel-skin-tango .jcarousel-clip-horizontal { width: 640px; }
+.product-list .jcarousel-skin-tango .jcarousel-item-horizontal { margin-right: 14px; width: 116px; }
+.product-list .jcarousel-skin-tango .jcarousel-next-horizontal, .product-list .jcarousel-skin-tango .jcarousel-prev-horizontal { top: 30px; }
+
+.document { color: 4c4c4c; font-size: 12px; padding: 6px 0; text-align: justify; }
+.document h2 { color: #be1238; font-size: 18px; margin-top: 20px; }
+.document h3 { color: #be1238; font-size: 16px; margin-top: 20px; }
+.document h4 { color: #be1238; font-size: 14px; margin-top: 20px; }
+.document h5 { color: #be1238; font-size: 12px; margin-top: 20px; }
+.document ul { list-style: disc; margin-bottom: 15px; margin-left: 30px; }
+.document ol { list-style: decimal; margin-bottom: 10px; margin-left: 35px; }
+.document li { padding-bottom: 3px; }
+
+.box-wrapper { padding: 6px; }
+.box-wrapper h1 { color: #535353; font-size: 25px; font-weight: bold; }
+.box-wrapper h1.title-page { background: url(../images/gobuy/bg-title-page.png) no-repeat left 2px; padding-left: 20px; }
+.box-wrapper .page-title h1 { background: url(../images/gobuy/bg-title-page.png) no-repeat left 2px; padding-left: 20px; }
+
+.testimonials-grid { margin-top: 10px; overflow: hidden; }
+.testimonials-grid ul { margin-top: -1px; width: 720px; }
+.testimonials-grid li { border-top: #aeaeae dotted 1px; color: 4c4c4c; display: inline-block; line-height: normal; margin-right: 20px; padding: 15px 0; vertical-align: top; width: 330px; }
+.testimonials-grid li .title-item img { border: #dbdbdb solid 1px; float: left; }
+.testimonials-grid li .title-item .group { float: right; width: 285px; }
+.testimonials-grid li .title-item h3 { color: #be1238; font-size: 13px; margin-bottom: 3px; }
+.testimonials-grid li .title-item h3 a { color: #be1238; }
+.testimonials-grid li .description { background: url(../images/gobuy/quote-open.png) no-repeat left top; font-style: italic; line-height: 1.5; margin-top: 3px; padding-left: 15px; }
+.testimonials-grid li .description blockquote { background: url(../images/gobuy/quote-close.png) no-repeat right bottom; padding-right: 5px; }
+ 
+/* home page */
+.cms-home { background: #ccc url(../images/gobuy/bg-body-home.png) repeat-x left 550px; }
+.cms-home .blocks-nav { margin-top: -380px; }
+
+.product-collateral .product-list ul { text-align:left; }
+.product-collateral .product-list ul li { display:inline-block; margin-right:14px; text-align:center; }

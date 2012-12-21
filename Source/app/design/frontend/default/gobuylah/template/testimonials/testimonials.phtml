@@ -1,0 +1,149 @@
+<?php
+
+
+
+/*
+
+
+
+ *	Paradox Labs, Inc.
+
+
+
+ *	http://www.paradoxlabs.com
+
+
+
+ *	717.431.3330
+
+
+
+ *	Twitter: ParadoxLabs
+
+
+
+ *
+
+
+
+ *	ParadoxLabs_Testimonials Magento Plugin
+
+
+
+ *
+
+
+
+ *	Having a problem with the plugin?
+
+
+
+ *	Not sure what something means?
+
+
+
+ *	Need custom development?
+
+
+
+ *		Give us a call!
+
+
+
+ *
+
+
+
+ *	Copyright 2010, Paradox Labs, Inc.
+
+
+
+ *	Licensed under OSL 3.0 License
+
+
+
+ *		http://opensource.org/licenses/osl-3.0.php
+
+
+
+ */
+
+
+
+
+
+
+
+	$base = Mage::getBaseUrl();
+
+
+
+	$urlimage = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+
+
+
+?>
+
+
+
+<div class="page-title">
+
+
+
+	<h1 class="title-1"><?php echo $this->__("Testimonials"); ?></h1>
+
+
+
+</div>
+
+
+
+<div class="banner-page"><img width="688" alt="banner" src="<?php echo $this->getSkinUrl('images/gobuy/no-image-tes.png'); ?>"></div>
+
+
+
+<div class="testimonials-grid">
+
+    <ul>
+
+    <?php
+
+		$rows = $this->getLatestTestimonials( 15 );
+
+		foreach($rows as $row):
+
+	?>
+
+        <li>
+
+            <div class="title-item clearer">
+
+                <img alt="image" src="<?php echo $this->getSkinUrl('images/gobuy/no-image-tes.jpg'); ?>">
+
+                <div class="group">
+
+                    <h3><?php echo $row['testimonial_name']; ?></h3>
+
+                    <p><?php echo $row['testimonial_address']; ?> </p>
+
+                </div>
+
+            </div>
+
+            <div class="description">
+
+                <blockquote>
+
+                    <?php echo $row['testimonial_cont']; ?>
+
+                </blockquote>
+
+            </div>
+
+        </li>
+
+    <?php endforeach; ?>
+
+    </ul>
+
+</div>

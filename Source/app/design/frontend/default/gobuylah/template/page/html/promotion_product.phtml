@@ -1,0 +1,82 @@
+<?php
+
+//$_productCollection = $this->_getProductCollection()->setPageSize(9);
+$_productCollection = Mage::getModel("catalog/category")->load(101)
+						->getProductCollection()
+						->addAttributeToSelect('*')
+						->addAttributeToFilter('status',1)
+						->addStoreFilter()
+						->setOrder('position','ASC')
+						->setPageSize(16);
+$_helper = $this->helper('catalog/output');
+
+?>
+
+<div class="box box-tempt">
+
+    <div class="box-title">促销精选 <strong>Promotion Items</strong></div>
+
+    <a href="<?php echo $this->getUrl('promotion-items.html') ?>" class="more">View All</a>
+
+    <div class="box-content">
+
+        <ul class="products-grid">
+
+            <?php foreach ($_productCollection as $_product): ?>
+
+            <li class="item">
+
+                <div class="item-content">
+
+                    <a class="product-image" href="<?php echo $_product->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(148); ?>" width="148" height="148" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+
+                    <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+
+                    <?php echo $this->getPriceHtml($_product, true) ?>
+
+                    <?php if($_product->isSaleable()): ?>
+
+                    <div class="actions">
+
+                        <label>Qty:</label>
+
+                        <input style="width:35px; height: 19px; margin-top: 1px;" type="text" id="qty" value="1" />
+
+                        <button data-url="<?php echo $this->getAddToCartUrl($_product) ?>" class="button btn-cart" title="Add to Cart" type="button"><span><span>Add to Cart</span></span></button>
+
+                    </div>
+
+                    <?php else: ?>
+
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+
+                    <?php endif; ?>
+
+                    <p class="description"><?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?></p>
+
+                </div>
+
+            </li>
+
+            <?php endforeach; ?>
+
+        </ul><!-- // products grid -->
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+jQuery(document).ready(function(e) {
+
+    jQuery(".btn-cart").click(function(e) {
+
+		//window.location = jQuery(this).data('url') + 'qty/'+jQuery(this).parent('.actions').find('.jquery-selectbox-currentItem').text()+'/';
+		window.location = jQuery(this).data('url') + 'qty/'+jQuery(this).parent('.actions').find('#qty').val()+'/';
+
+    });
+
+});
+
+</script>

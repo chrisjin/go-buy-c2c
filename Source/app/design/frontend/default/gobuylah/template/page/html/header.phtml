@@ -1,0 +1,169 @@
+<?php
+
+/**
+
+ * Magento
+
+ *
+
+ * NOTICE OF LICENSE
+
+ *
+
+ * This source file is subject to the Academic Free License (AFL 3.0)
+
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+
+ * It is also available through the world-wide-web at this URL:
+
+ * http://opensource.org/licenses/afl-3.0.php
+
+ * If you did not receive a copy of the license and are unable to
+
+ * obtain it through the world-wide-web, please send an email
+
+ * to license@magentocommerce.com so we can send you a copy immediately.
+
+ *
+
+ * DISCLAIMER
+
+ *
+
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+
+ * versions in the future. If you wish to customize Magento for your
+
+ * needs please refer to http://www.magentocommerce.com for more information.
+
+ *
+
+ * @category    design
+
+ * @package     base_default
+
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+
+ */
+
+/**
+
+ * @var Mage_Page_Block_Html_Header $this
+
+ */
+
+?>
+
+
+
+<div class="header-container">
+
+    <div class="header">
+
+        <h1 class="logo"><a class="logo" href="<?php echo $this->getUrl('') ?>"><img alt="Go Buy" src="<?php echo $this->getSkinUrl('images/gobuy/gobuy-logo.png'); ?>" /></a></h1>
+
+        <div class="quick-access">
+			
+            <ul class="links fixie">
+
+                <li class="first"><a href="<?php echo $this->getUrl('') ?>" class="home">Home</a></li>
+
+                <li><a href="<?php echo $this->getUrl('customer/account/') ?>" class="my-account">My Account</a></li>
+
+                <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+
+                <li><a href="<?php echo Mage::helper('customer')->getLogoutUrl(); ?>" class="login">Member Logout</a>
+
+                <?php else: ?>
+
+                <li><a href="<?php echo Mage::helper('customer')->getLoginUrl(); ?>" class="login">Member Login</a> / <a href="<?php echo $this->getUrl('customer/account/create/') ?>" class="register">Register</a></li>
+
+            	<?php endif; ?>
+
+                <li><a href="<?php echo $this->getUrl('checkout/cart') ?>" class="my-cart" id="total">My Cart [<?php if(Mage::getModel('checkout/cart')->getQuote()->getItemsCount()):echo round(Mage::getModel('checkout/cart')->getQuote()->getItemsQty()); else: echo '0'; endif; ?>]</a></li>
+
+            </ul>
+
+            <form method="get" action="<?php echo $this->helper('catalogsearch')->getResultUrl(); ?>" id="search_mini_form">
+
+                <div class="form-search">
+
+                	<?php
+
+                    	if(isset($_GET['q'])){ $key = $_GET['q']; }else{ $key = 'Search'; }
+
+					?>
+
+                    <input type="text" class="input-text" value="<?php echo $key; ?>" name="q" id="search" />
+
+                    <button class="button" title="Search" type="submit"><span><span><strong>Search</strong> 搜索</span></span></button>
+
+                </div>
+
+            </form>
+			<div class="hot-de">
+            	<div class="hot-del">
+                	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('free-delivery ')->toHtml() ?>
+                </div>
+                <div class="hot-li">
+                	<p style="color:#000; font-size:12px;"><span><strong>HOTLINE:</strong></span><strong><?php echo Mage::getStoreConfig('general/home_config/home_hotline'); ?></strong></p>
+                </div>
+            </div>			
+            <div class="payment-method">
+
+                <p class="title">Payment Methods</p>
+
+                <div class="content">
+
+                    <img src="<?php echo $this->getSkinUrl('images/gobuy/img-payment.png'); ?>" alt="image" />
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div><!-- // header -->
+
+        
+
+<div class="nav-container">
+
+	<?php  echo $this->getChildHtml('topMenu') ?>
+
+</div><!-- // nav container -->
+
+
+
+<script type="text/javascript">
+
+jQuery(document).ready(function($) {
+
+    var str = $('#search').val();
+
+	$('#search').bind('click', function() {
+		if($(this).val() == 'Search')
+		{
+			$(this).val("");		
+		}
+	});	
+
+	$('#search').focusout(function() {
+
+		if($(this).val() == '')
+
+		{
+
+			$(this).val(str);
+
+		}
+
+	});
+
+});
+
+</script>

@@ -1,0 +1,9 @@
+<?php
+$images = Mage::getModel('cpa/img')->getCollection()->addFieldToFilter('category_id', array('in'=>array(3)))->addOrder('img_order','ASC');
+$url_media = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'cpa_art';
+foreach($images as $image):
+?>
+<div class="bn-ads">
+    <img width="720" src="<?php echo $url_media.$image->getData('img_name'); ?>" alt="<?php echo $image->getData('img_label'); ?>" />
+</div>
+<?php endforeach; ?>

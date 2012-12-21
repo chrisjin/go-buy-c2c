@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+
+	<sections>
+
+		<general>
+
+			<groups>
+
+				<home_config translate="label">
+
+					<label>Home Config</label>
+
+					<frontend_type>text</frontend_type>
+
+					<sort_order>50</sort_order>
+
+					<show_in_default>1</show_in_default>
+
+					<show_in_website>1</show_in_website>
+
+					<show_in_store>1</show_in_store>
+
+					<fields>
+						<home_header_free translate="label">
+
+							<label>Free delivery</label>
+
+							<frontend_type>text</frontend_type>
+
+							<sort_order>1</sort_order>
+
+							<show_in_default>1</show_in_default>
+
+							<show_in_website>1</show_in_website>
+
+							<show_in_store>1</show_in_store>
+
+						</home_header_free>
+						<home_facebook_link translate="label">
+
+							<label>Facebook</label>
+
+							<frontend_type>text</frontend_type>
+
+							<sort_order>50</sort_order>
+
+							<show_in_default>1</show_in_default>
+
+							<show_in_website>1</show_in_website>
+
+							<show_in_store>1</show_in_store>
+
+						</home_facebook_link>
+
+						<home_facebook_fanpage translate="label">
+
+							<label>Facebook Fanpage</label>
+
+							<frontend_type>text</frontend_type>
+
+							<sort_order>51</sort_order>
+
+							<show_in_default>1</show_in_default>
+
+							<show_in_website>1</show_in_website>
+
+							<show_in_store>1</show_in_store>
+
+						</home_facebook_fanpage>
+
+						<home_twitter_link translate="label">
+
+							<label>Twitter</label>
+
+							<frontend_type>text</frontend_type>
+
+							<sort_order>49</sort_order>
+
+							<show_in_default>1</show_in_default>
+
+							<show_in_website>1</show_in_website>
+
+							<show_in_store>1</show_in_store>
+
+						</home_twitter_link>
+
+						<home_tumblr_link translate="label">
+
+							<label>Tumblr</label>
+
+							<frontend_type>text</frontend_type>
+
+							<sort_order>49</sort_order>
+
+							<show_in_default>1</show_in_default>
+
+							<show_in_website>1</show_in_website>
+
+							<show_in_store>1</show_in_store>
+
+						</home_tumblr_link>
+
+						<home_google_link translate="label">
+
+							<label>Google Plus</label>
+
+							<frontend_type>text</frontend_type>
+
+							<sort_order>49</sort_order>
+
+							<show_in_default>1</show_in_default>
+
+							<show_in_website>1</show_in_website>
+
+							<show_in_store>1</show_in_store>
+
+						</home_google_link>
+
+						<home_hotline translate="label">
+
+							<label>Hotline</label>
+
+							<frontend_type>text</frontend_type>
+
+							<sort_order>45</sort_order>
+
+							<show_in_default>1</show_in_default>
+
+							<show_in_website>1</show_in_website>
+
+							<show_in_store>1</show_in_store>
+
+						</home_hotline>
+
+						<home_footer_contact translate="label">
+
+							<label>Footer Contact</label>
+
+							<frontend_type>textarea</frontend_type>
+
+							<sort_order>53</sort_order>
+
+							<show_in_default>1</show_in_default>
+
+							<show_in_website>1</show_in_website>
+
+							<show_in_store>1</show_in_store>
+
+						</home_footer_contact>
+						
+						<home_footer_email translate="label">
+
+							<label>Footer Email</label>
+
+							<frontend_type>text</frontend_type>
+
+							<sort_order>52</sort_order>
+
+							<show_in_default>1</show_in_default>
+
+							<show_in_website>1</show_in_website>
+
+							<show_in_store>1</show_in_store>
+
+						</home_footer_email>
+
+					</fields>
+
+				</home_config>
+
+			</groups>
+
+		</general>
+
+	</sections>
+
+</config>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Gobuylah_C2c>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Gobuylah_C2c>
+    </modules>
+</config> 

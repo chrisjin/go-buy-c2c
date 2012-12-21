@@ -1,0 +1,33 @@
+<?php
+/*
+ *	Paradox Labs, Inc.
+ *	http://www.paradoxlabs.com
+ *	717.431.3330
+ *	Twitter: ParadoxLabs
+ *
+ *	ParadoxLabs_Testimonials Magento Plugin
+ *
+ *	Having a problem with the plugin?
+ *	Not sure what something means?
+ *	Need custom development?
+ *		Give us a call!
+ *
+ *	Copyright 2010, Paradox Labs, Inc.
+ *	Licensed under OSL 3.0 License
+ *		http://opensource.org/licenses/osl-3.0.php
+ */
+
+	$row = $this->getRandomTestimonial();
+	$base = Mage::getBaseUrl();
+	
+	if(substr_count($row['testimonial_text'], ' ') > 38)
+		$readmore = ' [<a href="'.$base.'testimonials/?t='.$row['testimonial_id'].'">'.$this->__('Read More').'</a>]';
+	else
+		$readmore = ' [<a href="'.$base.'testimonials/">'.$this->__('Read More').'</a>]';
+?>
+
+<h3><?php echo $this->__('Customer Testimonials'); ?></h3>
+<div class='testimonial_entry'>
+	<?php echo $row['testimonial_text']; ?>
+	<p class='byline'>- <?php echo $row['testimonial_name'].$readmore; ?></p>
+</div>

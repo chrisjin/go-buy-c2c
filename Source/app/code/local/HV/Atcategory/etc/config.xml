@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+
+    <modules>
+
+        <HV_Atcategory>
+
+            <version>1.0.0</version>
+
+        </HV_Atcategory>
+
+    </modules>
+
+    <global>
+		<helpers>
+            <atcategory>
+                <class>HV_Atcategory_Helper</class>
+            </atcategory>
+        </helpers>
+		<resources>
+
+			<atcategory_setup>
+
+			  <setup>
+
+				<module>HV_Atcategory</module>
+
+				<class>Mage_Catalog_Model_Resource_Eav_Mysql4_Setup</class>
+
+			  </setup>
+
+			  <connection>
+
+				<use>core_setup</use>
+
+			  </connection>
+
+			</atcategory_setup>
+
+			<atcategory_write>
+
+			  <connection>
+
+				<use>core_write</use>
+
+			  </connection>
+
+			</atcategory_write>
+
+			<atcategory_read>
+
+			  <connection>
+
+				<use>core_read</use>
+
+			  </connection>
+
+			</atcategory_read>
+
+		</resources>
+
+    </global>
+
+</config>
+

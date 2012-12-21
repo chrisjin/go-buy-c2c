@@ -1,0 +1,143 @@
+<?php
+
+/**
+
+ * Magento
+
+ *
+
+ * NOTICE OF LICENSE
+
+ *
+
+ * This source file is subject to the Academic Free License (AFL 3.0)
+
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+
+ * It is also available through the world-wide-web at this URL:
+
+ * http://opensource.org/licenses/afl-3.0.php
+
+ * If you did not receive a copy of the license and are unable to
+
+ * obtain it through the world-wide-web, please send an email
+
+ * to license@magentocommerce.com so we can send you a copy immediately.
+
+ *
+
+ * DISCLAIMER
+
+ *
+
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+
+ * versions in the future. If you wish to customize Magento for your
+
+ * needs please refer to http://www.magentocommerce.com for more information.
+
+ *
+
+ * @category    design
+
+ * @package     base_default
+
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+
+ */
+
+?>
+
+    
+
+<div class="footer-container">
+	<span class="bg-left"></span>
+    <div class="footer">
+
+        <span class="bg"></span>
+
+        <div class="related-links">
+
+            <p class="title">Related Links</p>
+
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_links')->toHtml() ?>
+
+        </div>
+
+        <div class="newsletter">
+
+            <p class="title">Signup for GoBuyLah Newsletter!</p>
+
+            <p>Receive exciting features, news and special offers from gobuylah.sg</p>
+
+            <div class="row">
+
+                <?php echo $this->getChildHtml('newsletter') ?>
+
+            </div>
+
+        </div>
+
+        <div class="connect-us" style="display:none;">
+
+            <p class="title">Connect with us</p>
+
+            <ul>
+
+                <li><a href="<?php echo Mage::getStoreConfig('general/home_config/home_facebook_link'); ?>" class="facebook">Facebook</a></li>
+
+                <li><a href="<?php echo Mage::getStoreConfig('general/home_config/home_twitter_link'); ?>" class="twitter">Twitter</a></li>
+
+                <li><a href="<?php echo Mage::getStoreConfig('general/home_config/home_tumblr_link'); ?>" class="tumblr">Tumblr</a></li>
+
+                <li><a href="<?php echo Mage::getStoreConfig('general/home_config/home_google_link'); ?>" class="google">Google +</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="contact-info">
+
+            <p class="title">Contact Us</p>
+
+            <strong>Buylah Pte Ltd</strong>
+
+            <address><?php echo nl2br(Mage::getStoreConfig('general/home_config/home_footer_contact')); ?></address>
+
+            <a href="mailto:<?php echo Mage::getStoreConfig('general/home_config/home_footer_email'); ?>"><?php echo Mage::getStoreConfig('general/home_config/home_footer_email'); ?></a>
+
+        </div>
+
+    </div>
+
+</div>
+<?php if(Mage::getModel('core/cookie')->get('show_wel')!= 1): ?>
+<a style="visibility:hidden; position:absolute;" id="show_wel" href="#inline"></a>
+<div id="inline" style="display:none" class="popup">
+    <div class="img-logo"><img src="<?php echo $this->getSkinUrl('images/gobuy/gobuy-logo-popup.png'); ?>" alt="logo" /></div>
+    <div class="image"><img src="<?php echo $this->getSkinUrl('images/gobuy/img-shop.png'); ?>" alt="image" /></div>
+    <div class="group-1">
+        <p>你一站式购物网页</p>
+        <p>Your one-stop online store</p>
+    </div>
+    <div class="tick">
+        <p>试营业活动</p>
+        <p>Soft launch Special</p>
+    </div>
+    <div class="group-2">
+        <p>注册将收到$5 折扣!</p>
+        <p>Receive $5 discount *upon sign up !</p>
+    </div>
+    <div class="link"><a onclick="parent.jQuery.fancybox.close();;" href="javascript:;">继续 Continue</a></div>
+</div>
+<div id="content_wel" style="display:none; width:720px; height:200px;"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('show_welcome')->toHtml() ?></div>
+<script type="text/javascript">
+jQuery(document).ready(function(e) {
+    jQuery("#show_wel").fancybox({padding: 0}).trigger('click');
+});
+</script>
+<?php Mage::getModel('core/cookie')->set("show_wel", 1, 86400); ?>
+<?php endif; ?>
+<div class="copyright">Copyright &copy; 2012 www.GoBuyLah.sg. All rights reserved. Designated trademarks and brands are the property of their respective owners. Web Design by <a target="_new" href="http://www.verzdesign.com/" class="verz">Verz</a></div>

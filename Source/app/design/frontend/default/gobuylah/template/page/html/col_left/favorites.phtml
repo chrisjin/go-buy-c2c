@@ -1,0 +1,26 @@
+<?php
+$collection = Mage::getResourceModel('reports/product_sold_collection')
+                                ->addOrderedQty()
+                                ->setStoreId($storeId)
+                                ->addStoreFilter($storeId)
+                                ->addUrlRewrite()
+				->addAttributeToFilter('visibility', array('in' => array(Mage_Catalog_Model_Product_Visibility::VISIBILITY_IN_CATALOG, Mage_Catalog_Model_Product_Visibility::VISIBILITY_BOTH)))
+				->addAttributeToFilter('status', Mage_Catalog_Model_Product_Status::STATUS_ENABLED)
+                                ->setOrder('ordered_qty', 'desc')
+                                ->setPageSize(8)
+				->setOrder('ordered_qty', 'desc');
+?>
+<?php if($collection->count() > 0): ?>
+<div class="blocks">
+    <div class="blocks-title">
+        最受欢迎 <strong>Top Favorites</strong>
+    </div>                  
+    <div class="blocks-content">  	
+        <ol>
+        <?php foreach($collection as $product): ?>
+            <li><a href="<?php echo $product->getProductUrl(); ?>"><?php echo $product->getOrder_items_name(); ?></a></li>
+        <?php endforeach; ?>
+        </ol>
+    </div>
+</div>
+<?php endif; ?>

@@ -1,0 +1,122 @@
+<?php					
+	$_reviews = Mage::getModel('review/review')->getCollection()
+										->addStoreFilter(Mage::app()->getStore()->getId())
+										->addStatusFilter(Mage_Review_Model_Review::STATUS_APPROVED)
+										->addEntityFilter('product', Mage::registry('current_product')->getId())
+										->setDateOrder()->addRateVotes();
+		$avg = 0; 
+		$ratings = array(); 
+		
+		if ($_reviews->count() > 0)
+		{
+			foreach ($_reviews->getItems() as $_review):
+				foreach( $_review->getRatingVotes() as $_vote ):
+					$ratings[] = $_vote->getPercent();
+				endforeach;
+			endforeach;   
+			$avg = array_sum($ratings)/count($ratings); 
+		}
+?>
+<div id="current_rating"><label>Average Customer Rating:</label><div class="rating_box"><div style="width:<?php echo ceil($avg); ?>%;" class="rating"></div></div></div>
+<div id="your_rating">
+<form id="myform" class="myform" method="post" name="myform">
+	<img id="loading" style="display:none; float:right; margin-top:15px;" src="<?php echo $this->getSkinUrl('images/loading.gif'); ?>" />
+	<label>Click here to share your rating:</label>
+	<ul class="star-rating">
+        <li style="width:0%;" id="rate" class="current-rating">Currently 3/5 Stars.</li>
+        <li><span class="one-star">1</span></li>
+        <li><span class="two-stars">2</span></li>
+        <li><span class="three-stars">3</span></li>
+        <li><span class="four-stars">4</span></li>
+        <li><span class="five-stars">5</span></li>
+    </ul>
+    <?php foreach ($this->getRatings() as $_rating): ?>
+	<?php $ten = $this->escapeHtml($_rating->getRatingCode()); ?>
+        <?php foreach ($_rating->getOptions() as $_option): ?>
+            <input type="radio" name="ratings[<?php echo $_rating->getId() ?>]" id="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>" value="<?php echo $_option->getId() ?>" class="radio_rating" />
+        <?php endforeach; ?>
+    <?php endforeach; ?>
+<?php
+	$name = '';
+	$email = '';
+	if (Mage::getSingleton('customer/session')->isLoggedIn()):
+		$customer = Mage::getSingleton('customer/session')->getCustomer();
+		$name = $customer->getName();
+		$email = $customer->getEmail();
+	endif;
+ ?>
+    <input type="hidden" name="nickname" id="nickname_field" value="<?php echo $name; ?>">
+    <input type="hidden" name="title" id="summary_field" value="<?php echo $email; ?>" />
+    <input type="hidden" name="detail" value="Rating" />
+    <input type="hidden" name="id" value="<?php echo Mage::registry('current_product')->getId(); ?>" />
+    <input type="hidden" name="validate_rating" class="validate-rating" value="" />
+</form>
+</div>
+<br style="clear:both;" />
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	jQuery(".star-rating li span").bind('click', function(){	
+		jQuery(".radio_rating").attr("checked", false);
+		switch(jQuery(this).attr('class'))
+		{
+			case 'one-star':
+			{
+				jQuery("#<?php echo $ten; ?>_1").attr("checked", "checked");
+				jQuery("#rate").width("20%");
+				rat();
+				break;
+			}
+			case 'two-stars':
+			{
+				jQuery("#<?php echo $ten; ?>_2").attr("checked", "checked");
+				jQuery("#rate").width("40%");
+				rat();
+				break;
+			}
+			case 'three-stars':
+			{
+				jQuery("#<?php echo $ten; ?>_3").attr("checked", "checked");
+				jQuery("#rate").width("60%");
+				rat();
+				break;
+			}
+			case 'four-stars':
+			{
+				jQuery("#<?php echo $ten; ?>_4").attr("checked", "checked");
+				jQuery("#rate").width("80%");
+				rat();
+				break;
+			}
+			case 'five-stars':
+			{
+				jQuery("#<?php echo $ten; ?>_5").attr("checked", "checked");
+				jQuery("#rate").width("100%");
+				rat();
+				break;
+			}
+		}
+	});
+});
+function rat(){
+	var dataString = jQuery('#myform').serialize();
+	jQuery.ajax({
+		type : 'POST',
+		dataType : 'json',
+		url : '<?php echo $this->getUrl('rating/rating/') ?>',
+		data: dataString,
+		beforeSend:function() {
+                    jQuery("#loading").show();
+                },
+		success : function(data) {
+			if(data.error == 1 ){
+				jQuery("#loading").hide();
+				alert(data.message);
+			}
+			else{
+				jQuery("#loading").hide();
+				alert(data.message);
+			}
+		}
+	});
+}
+</script>

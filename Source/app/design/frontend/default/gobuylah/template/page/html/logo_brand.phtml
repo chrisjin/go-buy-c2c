@@ -1,0 +1,14 @@
+<div class="box">
+    <div class="box-title"><strong>Brands</strong></div>
+    <div class="box-content">
+        <ul id="mycarousel" class="jcarousel-skin-tango">
+        <?php
+		$images = Mage::getModel('cpa/img')->getCollection()->addFieldToFilter('category_id', array('in'=>array(2)))->addOrder('img_order','ASC');
+		$url_media = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'cpa_art';
+		foreach($images as $image):
+		?>
+            <li><img src="<?php echo $url_media.$image->getData('img_name'); ?>" alt="<?php echo $image->getData('img_label'); ?>" /></li>
+        <?php endforeach; ?>
+        </ul>
+    </div>
+</div>

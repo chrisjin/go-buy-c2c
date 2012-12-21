@@ -1,0 +1,18 @@
+<?php if (($products = $this->getProductCollection())): ?>
+	<?php foreach ($products->getItems() as $product): ?>
+    <li>
+        <a href="#"><img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->resize(118, 118); ?>" alt="image" /></a>
+        <div class="description">
+            <h3 class="product-name"><a href="<?php echo $product->getProductUrl() ?>"><?php echo $this->htmlEscape($product->getName()) ?></a></h3>
+            <p class="weight">250g bottle</p>
+            <?php echo $this->getPriceHtml($product, true) ?>
+            <div class="add-to-box">
+                <div class="btn-group">
+                    <button onclick="setLocation('<?php echo $this->helper('wishlist')->getAddUrl($product) ?>')" class="button btn-star" title="Add to Favourites" type="button"><span><span>Add to Favourites</span></span></button>
+                    <button onclick="setLocation('<?php echo $this->getAddToCartUrl($product) ?>')" class="button btn-cart" title="Add to cart" type="button"><span><span>Add to cart</span></span></button>
+                </div>
+            </div>    
+        </div>
+    </li>
+    <?php endforeach;?>
+<?php endif; ?>

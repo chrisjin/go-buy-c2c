@@ -1,0 +1,30 @@
+<div class="banner-wrapper">
+
+	<div class="banner-inner">
+
+    	<div class="banner">
+           
+                <div id="slider-content">
+
+				<?php
+
+                $images = Mage::getModel('cpa/img')->getCollection()->addFieldToFilter('category_id', array('in'=>array(1)))->addOrder('img_order','ASC');
+
+                $url_media = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'cpa_art';
+
+                foreach($images as $image):
+
+                ?>
+
+                	<a href="<?php echo $image->getData('img_lin'); ?>"><img src="<?php echo $url_media.$image->getData('img_name'); ?>" alt="<?php echo $image->getData('img_label'); ?>" height="360" width="720" /></a>
+
+	            <?php endforeach; ?>
+
+                </div>
+
+        </div>
+
+    </div>
+
+</div>
+
